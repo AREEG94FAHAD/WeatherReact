@@ -46,7 +46,7 @@ export default class container extends Component {
 
   // first render
   componentDidMount() {
-    fetch("https://www.metaweather.com/api/location/1979455/")
+    fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/1979455/")
       .then((response) => response.json())
       .then((data) => {
         this.setState({ isLoading: false });
@@ -118,7 +118,7 @@ export default class container extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevState.wo !== this.state.wo) {
-      fetch("https://www.metaweather.com/api/location/" + this.state.wo)
+      fetch("https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/" + this.state.wo)
         .then((response) => response.json())
         .then((data) => {
           this.setState({ isLoading: false });
@@ -200,7 +200,7 @@ export default class container extends Component {
     };
     const getWoeid = () => {
       fetch(
-        "https://www.metaweather.com/api/location/search/?query=" +
+        "https://cors-anywhere.herokuapp.com/https://www.metaweather.com/api/location/search/?query=" +
         this.state.cityName
       )
         .then((response) => response.json())
